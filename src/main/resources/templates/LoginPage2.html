@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master :: app_firstheader" />
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header th:replace="master :: app_secondheader"></header>
+		<aside th:replace="master :: app_aside"></aside>
+		<div class="content-wrapper" style="padding: 5px;">
+			<div>
+				<form name="f" th:action="@{/login}" method="post">
+					<fieldset>
+						<legend>Please Login</legend>
+						<div th:if="${param.error}" class="alert alert-error">
+							Invalid username and password.</div>
+						<div th:if="${param.logout}" class="alert alert-success">
+							You have been logged out.</div>
+						<label for="username">Username</label> <input type="text"
+							id="username" name="username" /> <label for="password">Password</label>
+						<input type="password" id="password" name="password" />
+						<div class="form-actions">
+							<button type="submit" class="btn">Log in</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<footer th:replace="master :: app_footer"></footer>
+		<aside th:replace="master :: app_controlsidebar"></aside>
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<div th:replace="master :: app_script"></div>
+</body>
+</html>

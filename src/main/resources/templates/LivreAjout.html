@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master :: app_firstheader" />
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header th:replace="master :: app_secondheader"></header>
+		<aside th:replace="master :: app_aside"></aside>
+		<div class="content-wrapper" style="padding: 5px;">
+			<form name="f" th:object="${exemplaire}" method="post"
+				th:action="@{/exemplaire}">
+				<div class="form-group">
+					<input type="hidden" th:field="*{id}"></input> <label
+						class="control-label">Auteur</label> <input class="form-control"
+						type="text" placeholder="Entrer auteur" th:field="*{auteur}"></input>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Editeur</label> <input
+						class="form-control" type="text" placeholder="Entrer editeur
+				</div>
+				<div class="form-group">
+					<label class="control-label">Synopsis</label> <input
+						class="form-control" type="text" placeholder="Entrer synopsis"
+						th:field="*{synopsis}"></input>
+				</div>	
+				<div class="form-group">
+					<label class="control-label">Choisir catégorie</label> <select
+						class="form-control" id="demoSelect" th:field="*{categorie}">
+						<optgroup label="Choisir le livre">
+							<option value=""></option>
+							<option th:each="cat : ${categories}" th:value="${cat.id}"
+								th:text="${cat.titre}"></option>
+						</optgroup>
+					</select>
+				</div>
+				<div class="card-footer">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-3">
+							<button class="btn btn-primary icon-btn" type="submit"
+								th:text="Ajouter">
+								<i class="fa fa-fw fa-lg fa-check-circle"></i>
+							</button>
+							&nbsp;&nbsp;&nbsp;<a th:text="Annuler"
+								class="btn btn-default icon-btn"
+								href="javascript:window.history.back();"><i
+								class="fa fa-fw fa-lg fa-times-circle"></i></a>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<footer th:replace="master :: app_footer"></footer>
+		<aside th:replace="master :: app_controlsidebar"></aside>
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<div th:replace="master :: app_script"></div>
+</body>
+</html>

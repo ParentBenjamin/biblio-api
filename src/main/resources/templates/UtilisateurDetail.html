@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master :: app_firstheader" />
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header th:replace="master :: app_secondheader"></header>
+		<aside th:replace="master :: app_aside"></aside>
+		<div class="content-wrapper" style="padding: 5px;">
+			<div class="page-title">Détail de l'utilisateur</div>
+
+			<div class="card">
+				<div class="card-body">
+					<div class="panel panel-heading">
+						<h3 class="panel-title">Utilisateur</h3>
+					</div>
+					<form class="form-horizontal">
+						<div class="row card-body">
+							<div class="col-md-12 col-sm-12">
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-6"> Nom :</label>
+									<div class="col-md-8 col-sm-6">
+										<label class="control-label col-md-8 col-sm-12"
+											th:text="${utilisateur.nom}"></label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-6"> Prenom
+										:</label>
+									<div class="col-md-8 col-sm-6">
+										<label class="control-label col-md-8 col-sm-12"
+											th:text="${utilisateur.prenom}"></label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-6">
+										Mail :</label>
+									<div class="col-md-8 col-sm-6">
+										<b><label class="control-label col-md-8 col-sm-12"
+											th:text="${utilisateur.mail}"></label></b>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-6"> Pseudo
+										:</label>
+									<div class="col-md-8 col-sm-6">
+										<label class="control-label col-md-8 col-sm-12"
+											th:text="${utilisateur.pseudo}"></label>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-6">
+										Mot de passe :</label>
+									<div class="col-md-8 col-sm-6">
+										<b><label class="control-label col-md-8 col-sm-12"
+											th:text="${utilisateur.pass}"></label></b>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-4 col-sm-6">
+										Statut :</label>
+									<div class="col-md-8 col-sm-6">
+										<b><label class="control-label col-md-8 col-sm-12"
+											th:text="${utilisateur.getStatutName()}"></label></b>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</form>
+
+				</div>
+			</div>
+
+			<div></div>
+		</div>
+		<footer th:replace="master :: app_footer"></footer>
+		<aside th:replace="master :: app_controlsidebar"></aside>
+		<div class="control-sidebar-bg"></div>
+	</div>
+	<div th:replace="master :: app_script"></div>
+</body>
+</html>

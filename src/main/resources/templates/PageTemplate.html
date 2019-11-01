@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="master :: app_firstheader" />
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<header th:replace="master :: app_secondheader"></header>
+		<aside th:replace="master :: app_aside"></aside>
+		<div class="content-wrapper" style="padding:5px;">
+			<div>test ceci est un test</div>
+		</div>
+		<footer th:replace="master :: app_footer"></footer>
+		<aside th:replace="master :: app_controlsidebar"></aside>
+		<div class="control-sidebar-bg"></div>		
+	</div>
+	<div th:replace="master :: app_script"></div>
+</body>
+</html>
